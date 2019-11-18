@@ -4,3 +4,6 @@
 *    text=auto
 
 *.cs text diff=csharp
+*.js linguist-detectable=false
+*.html linguist-detectable=false
+*.xml linguist-detectable=false
