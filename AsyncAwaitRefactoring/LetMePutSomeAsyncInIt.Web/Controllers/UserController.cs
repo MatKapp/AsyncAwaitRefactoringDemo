@@ -27,9 +27,9 @@ namespace LetMePutSomeAsyncInIt.Web.Controllers
         [Route("")]
         [Route("Index")]
         // GET: User
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            var users = _userRepo.GetAll();
+            var users = await _userRepo.GetAll();
             return View(users);
         }
 
@@ -37,7 +37,7 @@ namespace LetMePutSomeAsyncInIt.Web.Controllers
         [Route("{id}")]
         public async Task<ActionResult> GetByID(int id)
         {
-            var user = _userRepo.GetByID(id);
+            var user = await _userRepo.GetByID(id);
             user.Albums = await _albumRepo.GetForUser(user.ID);
             user.Posts = await _postRepo.GetForUser(user.ID);
 
